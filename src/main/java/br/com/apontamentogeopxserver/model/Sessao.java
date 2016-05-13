@@ -11,6 +11,10 @@ public class Sessao {
 	private String HoraSys_Fim;
 	private String DataSys_Inicio;
 	private String DataSys_Fim;
+	private String Data_Inicio;
+	private String Data_Fim;
+	private String Hota_Inicio;
+	private String Hora_Fim;
 	private String Sub_atividade;
 	private String User_Name;
 	private int Id_Projeto;
@@ -119,6 +123,46 @@ public class Sessao {
 
 	public void setUser_Name(String user_Name) {
 		User_Name = user_Name;
+	}
+
+
+	public String getData_Inicio() {
+		return Data_Inicio;
+	}
+
+
+	public void setData_Inicio(String data_Inicio) {
+		Data_Inicio = data_Inicio;
+	}
+
+
+	public String getData_Fim() {
+		return Data_Fim;
+	}
+
+
+	public void setData_Fim(String data_Fim) {
+		Data_Fim = data_Fim;
+	}
+
+
+	public String getHota_Inicio() {
+		return Hota_Inicio;
+	}
+
+
+	public void setHota_Inicio(String hota_Inicio) {
+		Hota_Inicio = hota_Inicio;
+	}
+
+
+	public String getHora_Fim() {
+		return Hora_Fim;
+	}
+
+
+	public void setHora_Fim(String hora_Fim) {
+		Hora_Fim = hora_Fim;
 	}
 
 

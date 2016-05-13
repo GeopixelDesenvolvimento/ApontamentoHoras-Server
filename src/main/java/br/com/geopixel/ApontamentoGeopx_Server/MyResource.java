@@ -63,7 +63,7 @@ public class MyResource {
 		String result = "";
 		
 		try {
-			if(controller.IniciarSessao(sassion)){
+ 			if(controller.IniciarSessao(sassion)){
 				
 				result = "true";
 			}else{
