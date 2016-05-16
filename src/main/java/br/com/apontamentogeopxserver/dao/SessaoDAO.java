@@ -33,23 +33,23 @@ public class SessaoDAO {
 	
         Connection connection = conexaobd.abreconexao();
             // invoca o statement
-        try (PreparedStatement stmt = connection.prepareStatement("insert into sessao (Id_Sessao, DataSys_Inicio, Data_Inicio, HoraSys_Inicio, Hora_INicio, Id_Atividade, Id_Projeto, User_Name, Sub_atividade, Status, DataSys_Fim, Data_Fim, HoraSys_Fim, Hora_Fim) "
+        try (PreparedStatement stmt = connection.prepareStatement("insert into sessao (Id_Sessao, Data_Inicio, DataSystem_Inicio, Hora_Inicio, HoraSystem_Inicio, Id_Atividade, Id_Projeto, User_Name, Sub_atividade, Status, Data_Fim, DataSystem_Fim, Hora_Fim, HoraSystem_Fim) "
 	                + "values  (?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
 	        
 	    		stmt.setInt(1, sessao.getId_Sessao());
-				stmt.setString(2, sessao.getDataSys_Inicio());
-				stmt.setString(3, sessao.getData_Inicio());
-	            stmt.setString(4, sessao.getHoraSys_Inicio());
-	            stmt.setString(5, sessao.getHota_Inicio());
+				stmt.setString(2, sessao.getData_Inicio());
+				stmt.setString(3, sessao.getDataSystem_Inicio());
+	            stmt.setString(4, sessao.getHora_Inicio());
+	            stmt.setString(5, sessao.getHoraSystem_Inicio());
 	            stmt.setInt(6, sessao.getId_Atividade());
 	            stmt.setInt(7, sessao.getId_Projeto());
 	            stmt.setString(8, sessao.getUser_Name());
 	            stmt.setString(9, sessao.getSub_atividade());
 	            stmt.setString(10, sessao.getStatus());
-	            stmt.setString(11, sessao.getDataSys_Fim());
-	            stmt.setString(12, sessao.getData_Fim());
-	            stmt.setString(13, sessao.getHoraSys_Fim());
-	            stmt.setString(14, sessao.getHora_Fim());
+	            stmt.setString(11, sessao.getData_Fim());
+	            stmt.setString(12, sessao.getDataSystem_Fim());
+	            stmt.setString(13, sessao.getHora_Fim());
+	            stmt.setString(14, sessao.getHoraSystem_Fim());
 	            stmt.getConnection().createStatement();
 	            
 	            stmt.executeUpdate();
@@ -74,20 +74,20 @@ public class SessaoDAO {
             ResultSet rs = stmt.getResultSet();
                 while (rs.next()){
                     Sessao ses = new Sessao();
-                    ses.setId_sessao(rs.getInt("id"));
-                    ses.setDataSys_Inicio(rs.getString(2));
-                    ses.setData_Inicio(rs.getString(3));
-					ses.setHoraSys_Inicio(rs.getString(4));
-					ses.setHota_Inicio(rs.getString(5));
+                    ses.setId_Sessao(rs.getInt("id"));
+                    ses.setData_Inicio(rs.getString(2));
+                    ses.setDataSystem_Inicio(rs.getString(3));
+					ses.setHora_Inicio(rs.getString(4));
+					ses.setHoraSystem_Inicio(rs.getString(5));
 					ses.setId_Atividade(rs.getInt(6));
 					ses.setId_Projeto(rs.getInt(7));
 					ses.setUser_Name(rs.getString(8));
 					ses.setSub_atividade(rs.getString(9));
 					ses.setStatus(rs.getString(10));
-                    ses.setDataSys_Fim(rs.getString(11));
-                    ses.setData_Fim(rs.getString(12));
-					ses.setHoraSys_Fim(rs.getString(13));
-					ses.setHora_Fim(rs.getString(14));
+                    ses.setData_Fim(rs.getString(11));
+                    ses.setDataSystem_Fim(rs.getString(12));
+					ses.setHora_Fim(rs.getString(13));
+					ses.setHoraSystem_Fim(rs.getString(14));
                     
                     sessao.add(ses);
 
@@ -106,14 +106,14 @@ public class SessaoDAO {
 		try {
 			Connection connection = conexaobd.abreconexao();
 						
-			String sql = "UPDATE sessao SET Status=?, DataSys_Fim=?, Data_Fim=?, HoraSys_Fim=?, Hora_Fim=? WHERE Id_Sessao = ?";
+			String sql = "UPDATE sessao SET Status=?, Data_Fim=?, DataSystem_Fim=?, Hora_Fim=?, HoraSystem_Fim=? WHERE Id_Sessao = ?";
 			
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, sessao_Up.getStatus());
-			stmt.setString(2, sessao_Up.getDataSys_Fim());
-			stmt.setString(3, sessao_Up.getData_Fim());
-            stmt.setString(4, sessao_Up.getHoraSys_Fim());
-            stmt.setString(5, sessao_Up.getHora_Fim());
+			stmt.setString(2, sessao_Up.getData_Fim());
+			stmt.setString(3, sessao_Up.getDataSystem_Fim());
+            stmt.setString(4, sessao_Up.getHora_Fim());
+            stmt.setString(5, sessao_Up.getHoraSystem_Fim());
             stmt.setInt(6, sessao_Up.getId_Sessao());
             
             stmt.executeUpdate();
@@ -168,7 +168,7 @@ public class SessaoDAO {
 			ResultSet rs = stmt.executeQuery();
 			
 			if(rs.next()){
-				sessao.setId_sessao(rs.getInt("Id_Sessao"));
+				sessao.setId_Sessao(rs.getInt("Id_Sessao"));
 			}
 			rs.close();
 			

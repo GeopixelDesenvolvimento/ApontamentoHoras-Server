@@ -19,9 +19,9 @@ public class CtrlSassion {
 	public boolean IniciarSessao(Sessao sessao_Inicio) throws ClassNotFoundException{
 	     SessaoDAO sessaodao = new SessaoDAO();
 	    
-	    sessao_Inicio.setId_sessao(0);
-	    sessao_Inicio.setData_Inicio(Sistema.ObterData());
-	    sessao_Inicio.setHota_Inicio(Sistema.ObterHora());
+	    sessao_Inicio.setId_Sessao(0);
+	    sessao_Inicio.setDataSystem_Inicio(Sistema.ObterData());
+	    sessao_Inicio.setHoraSystem_Inicio(Sistema.ObterHora());
 	    sessao_Inicio = sessaodao.CheckSassion(sessao_Inicio);
 	   
 	  //metodo que verifica se o Id_Sessao, Id_Atividade e Id_Projeto...
@@ -35,8 +35,8 @@ public class CtrlSassion {
 	public boolean FinalizarSessao(Sessao sessao_Fim) throws ClassNotFoundException{
 		
 		SessaoDAO sessaodao = new SessaoDAO();
-		sessao_Fim.setData_Fim(Sistema.ObterData());
-		sessao_Fim.setHora_Fim(Sistema.ObterHora());
+		sessao_Fim.setDataSystem_Fim(Sistema.ObterData());
+		sessao_Fim.setHoraSystem_Fim(Sistema.ObterHora());
 		sessao_Fim = sessaodao.CheckSassion(sessao_Fim);
 		
 		//metodo que verifica a sessao aberta...

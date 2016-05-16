@@ -40,14 +40,12 @@ public class MyResource {
     @POST
 	@Path("/beginSassion")
     public Response beginSassion(
+    		@FormParam("User_Name") String user_Name,
     		@FormParam("Id_Atividade") int Id_Atividade,
     		@FormParam("Id_Projeto") int Id_Projeto,
-    		@FormParam("Status") String Status,
-    		@FormParam("DataSys_Inicio") String DataSys_Inicio,
-    		@FormParam("Data_Inicio")String Data_Inicio,
-    		@FormParam("HoraSys_Inicio") String HoraSys_Inicio,
+    		@FormParam("Data_Inicio") String Data_Inicio,
     		@FormParam("Hora_Inicio") String Hora_Inicio,
-    		@FormParam("User_Name") String user_Name,
+    		@FormParam("Status") String Status,
     		@FormParam("Sub_atividade") String Sub_atividade) throws ClassNotFoundException, SQLException{
 		CtrlSassion controller = new CtrlSassion();
 		Sessao sassion = new Sessao();
@@ -55,8 +53,8 @@ public class MyResource {
 		sassion.setId_Atividade(Id_Atividade);
 		sassion.setId_Projeto(Id_Projeto);
 		sassion.setStatus(Status);
-		sassion.setDataSys_Inicio(DataSys_Inicio);
-		sassion.setHoraSys_Inicio(HoraSys_Inicio);
+		sassion.setData_Inicio(Data_Inicio);
+ 		sassion.setHora_Inicio(Hora_Inicio);
 		sassion.setUser_Name(user_Name);
 		sassion.setSub_atividade(Sub_atividade);
 		
@@ -93,14 +91,15 @@ public class MyResource {
     @POST
 	@Path("/closeSassion")
     public Response closeSassion(
+    		@FormParam("User_Name") String user_Name,
     		@FormParam("Id_Atividade") int Id_Atividade,
     		@FormParam("Id_Projeto") int Id_Projeto,
     		@FormParam("status") String status,
-    		@FormParam("User_Name") String user_Name,
-    		@FormParam("Sub_atividade") String Sub_atividade,
+    		@FormParam("Data_Fim") String Data_Fim,
+    		@FormParam("Hora_Fim") String Hora_Fim,
     		@FormParam("Status") String Status,
-    		@FormParam("DataSys_Fim") String DataSys_Fim,
-    		@FormParam("HoraSys_Fim") String HoraSys_Fim){
+    		@FormParam("Sub_atividade") String Sub_atividade) {
+    		
 		
 		CtrlSassion controller = new CtrlSassion();
 		Sessao sassion = new Sessao();
@@ -108,8 +107,8 @@ public class MyResource {
 		sassion.setId_Atividade(Id_Atividade);
 		sassion.setId_Projeto(Id_Projeto);
 		sassion.setStatus(Status);
-		sassion.setDataSys_Fim(DataSys_Fim);
-		sassion.setHoraSys_Fim(HoraSys_Fim);
+		sassion.setData_Fim(Data_Fim);
+		sassion.setHora_Fim(Hora_Fim);
 		sassion.setUser_Name(user_Name);
 		sassion.setSub_atividade(Sub_atividade);
 		
