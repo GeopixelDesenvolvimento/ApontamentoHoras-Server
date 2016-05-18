@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import br.com.apontamentogeopxserver.factory.ConnectionFactory;
 import br.com.apontamentogeopxserver.model.Atividade;
 import br.com.apontamentogeopxserver.utils.JSonUtils;
@@ -21,6 +20,13 @@ import br.com.apontamentogeopxserver.utils.JSonUtils;
 public class AtividadeDAO {
 	private PreparedStatement stmt;
 	private ConnectionFactory conexaobd = new ConnectionFactory();
+	
+	/**
+	 * Responsável por selecionar no banco a informação escolhida pelo usuario
+	 * @param atividade
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 		
 	public void SalvaAtividade(Atividade atividade) throws SQLException, ClassNotFoundException{
 		Connection connection = conexaobd.abreconexao();
@@ -29,6 +35,10 @@ public class AtividadeDAO {
             stmt.setString(2, atividade.getAtividade());
             stmt.execute();
             stmt.getConnection().createStatement();
+            
+            /**
+             * Retorna o ID referente a escolha feita acima
+             */
 
             try (ResultSet keys = stmt.getGeneratedKeys()){
                     keys.next();
@@ -40,7 +50,14 @@ public class AtividadeDAO {
             stmt.execute();
             
             conexaobd.FechaConexao();
-    }       
+    }  
+	
+	/**
+	 * Cria uma lista de array com as infromações escolhidas pelo usuário a atraves do ID do atividade (Id_Atividade).
+	 * @return Atividade
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 
 	public ArrayList<Atividade> lista() throws SQLException, ClassNotFoundException {
         String query = "select * from atividades";
@@ -61,6 +78,13 @@ public class AtividadeDAO {
         return atividade;
     }
 
+	/**
+	 * Retorna o valor do Id_Atividade
+	 * @param atividade
+	 * @return Id_Atividade
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public int getIdAtividade(String atividade) throws SQLException, ClassNotFoundException{
     	Connection connection = conexaobd.abreconexao();
         
@@ -81,7 +105,13 @@ public class AtividadeDAO {
             return 0;
         }
     }
-	
+	/**
+	 * Metodo responsável por retornar o Json com os atributos do conjunto de Ativadades
+	 * @return Json com todos os atributos do conjunto de atividades
+	 * @throws ClassNotFoundException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 */
 	public String getJsonAtividades() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		String query = "select * from atividades order by atividade";
        

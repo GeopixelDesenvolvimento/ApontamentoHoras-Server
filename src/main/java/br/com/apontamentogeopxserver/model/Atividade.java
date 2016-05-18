@@ -1,7 +1,7 @@
 package br.com.apontamentogeopxserver.model;
 
 /**
- * Classe responsavel por manter os atributos do objeto Atividade
+ * Classe responsavel por criar os atributos do objeto Atividade
  * @author marcelly.paula
  * 
  */

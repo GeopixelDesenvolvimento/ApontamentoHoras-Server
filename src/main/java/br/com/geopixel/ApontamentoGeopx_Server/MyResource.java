@@ -32,11 +32,19 @@ public class MyResource {
         return "Got it!";
     }
     
-    /**
-     * Metodo que inicia uma nova sessao para o usuario
-     * @throws SQLException 
-     * @throws ClassNotFoundException 
-     */
+   /**
+    * Metodo que inicia uma nova sessao para o usuario
+    * @param user_Name
+    * @param Id_Atividade
+    * @param Id_Projeto
+    * @param Data_Inicio
+    * @param Hora_Inicio
+    * @param Status
+    * @param Sub_atividade
+    * @return IniciarSessao
+    * @throws ClassNotFoundException
+    * @throws SQLException
+    */
     @POST
 	@Path("/beginSassion")
     public Response beginSassion(
@@ -85,7 +93,7 @@ public class MyResource {
      * @param Status
      * @param DataSys_Fim
      * @param HoraSys_Fim
-     * @return
+     * @return FinalizarSessao
      */
    
     @POST
@@ -129,14 +137,14 @@ public class MyResource {
 	}
         
    
-    /**
-     * Metodo que retorna as informaçoes da tabela Atividade do BD e carrega para 
-     * o combobox Atividade da pagina
-     * @return
-     * @throws ClassNotFoundException
-     * @throws InstantiationException
-     * @throws IllegalAccessException
-     */
+  /**
+   * Metodo que retorna as informaçoes da tabela Atividade do BD e carrega para 
+   * o combobox Atividade da pagina
+   * @return obterJsonAtividades
+   * @throws ClassNotFoundException
+   * @throws InstantiationException
+   * @throws IllegalAccessException
+   */
   
     @GET
    	@Path("/getListActivites")
@@ -156,7 +164,7 @@ public class MyResource {
     /**
      * Metodo que retorna as informaçoes da tabela Projeto do BD e carrega para 
      * o combobox projeto da pagina
-     * @return
+     * @return obterJsonProjetos
      * @throws ClassNotFoundException
      * @throws InstantiationException
      * @throws IllegalAccessException
@@ -182,7 +190,7 @@ public class MyResource {
     /**
      * Metodo que carrega a ultima sessao em aberta do usuário
      * @param user
-     * @return
+     * @return  ObterJsonUltimaSessaoUsuario
      * @throws ClassNotFoundException
      * @throws InstantiationException
      * @throws IllegalAccessException

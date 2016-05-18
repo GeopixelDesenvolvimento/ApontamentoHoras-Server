@@ -7,17 +7,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * Classe responsavel por abir e fechar a conexao com o banco de dados 
+ * Classe responsavel por abrir e fechar a conexao com o Banco de Dados 
  * Banco de Dados criado com o nome apontamentogeopx;
- * com as tabelas: Atividades que contem o id e descricao das mesmas. tebala Projeto que tambpem contem o id e decricao 
- * e a tabela Sessoa_user, onde sera nesta tabela que ira armazenas as informacoes da sessao dde cada usuario, ou seja, 
+ * com as tabelas: Atividades que contem o id e descricao das mesmas. tebala Projeto que tampem contem o id e decricao 
+ * e a tabela Sessao, onde sera nesta tabela que ira armazenar as informacoes da sessao de cada usuario, ou seja, 
  * qual o projeto, atividade escolhido na data e hora da execucao da mesma
  * @author marcelly.paula
  *
  */
-
-
-public class ConnectionFactory {
+ public class ConnectionFactory {
 
     //private static final String Driver = "com.mysql.jdbc.Driver";
     private static final String Url = "jdbc:mysql://127.0.0.1:3306/apontamentogeopx";
@@ -28,7 +26,7 @@ public class ConnectionFactory {
     private ResultSet rs;
 	/**
 	 * Metodo reponsavel por criar a conexao com o bando de dados apontamentogeopx
-	 * @return
+	 * @return conexao
 	 * @throws ClassNotFoundException 
 	 */
 	public Connection abreconexao() throws ClassNotFoundException {

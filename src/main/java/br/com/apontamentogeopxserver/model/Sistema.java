@@ -1,10 +1,19 @@
 package br.com.apontamentogeopxserver.model;
 
 import java.text.SimpleDateFormat;
+/**
+ * Classe responsavel por cirar os atributos do objeto sistema
+ * será atraves desta classio que as infromações de data/hora serão coletadas do sistema
+ */
 import java.util.Calendar;
 import java.util.Date;
 
 public class Sistema {
+	
+	/**
+	 * Metodo responsavel por capturar a data do sistema
+	 * @return
+	 */
 	public static String ObterData(){
 	
 			Calendar c = Calendar.getInstance();
@@ -13,7 +22,12 @@ public class Sistema {
 			SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy"); //Data COmpleta
 			return f.format(data);
 	    }
- public static String ObterHora(){
+	
+	/**
+	 * Metodo responsavel por coletar a hora do sistema
+	 * @return
+	 */
+	public static String ObterHora(){
 	       //pega data para converter em horas
 	       Date data = new Date();
 	       //cria o formatador

@@ -1,20 +1,10 @@
 package br.com.apontamentogeopxserver.dao;
-/**
- * Classe responsavel por criar e gerenciar as sessao de cada usuario atraves dos metodos descritos abaixo:
- * InsertSassion -> Metodo responsável por inserir no banco de dados a sessao iniciada pelo usuário;
- * ArrayList<Sessao> -> Metodo responsavel por criar uma lista com as informações das sessoes em banco;
- * UpdateSassion -> Metodo responsável por autlizar o banco de dados;
- * getJsonSassion ->  Metodo responsavel por recuperar o Json com as informações do usuario
- * CheckSassion -> Metodo responsavel por fazer a verificação da sessao
- * getJsonUltimaSessaoUsuario -> Metodo responsavel por recuperar um json com a ultima sessao em aberta pelo usuario
- *  
- */
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import br.com.apontamentogeopxserver.factory.ConnectionFactory;
 import br.com.apontamentogeopxserver.model.Sessao;
 import br.com.apontamentogeopxserver.utils.JSonUtils;
@@ -24,7 +14,7 @@ public class SessaoDAO {
 	private ConnectionFactory conexaobd = new ConnectionFactory();
 	
 	/**
-	 * Metodo responsável por inserir as infromações escolhidas pelo usuário no banco 
+	 * Realizar a inserção de informações no Banco de Dados.
 	 * @param sessao
 	 * @return
 	 * @throws ClassNotFoundException
@@ -64,6 +54,12 @@ public class SessaoDAO {
 		}
 	}
 	
+	/**
+	 * Cria uma lista de array com as infromações escolhidas pelo usuário a atraves do ID da sessao (Id_Sessao).
+	 * @return sessao completa do usuário
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	
     public ArrayList<Sessao> lista() throws SQLException, ClassNotFoundException{
         String sql = "select * from sessao";
@@ -97,9 +93,9 @@ public class SessaoDAO {
         }
     }
     /**
-     * Metodo responsavel por fazer a atualização do banco de dados
+     * Metodo responsavel por fazer a atualização do banco de dados, passando para o mesmo as informações de Data/Hora escolhida pelo usuário e Data/Hora do sistema.
      * @param sessao_Up
-     * @return
+     * @return Sessao atualizada 
      */
 	public boolean UpdateSassion(Sessao sessao_Up) {
 		 				
@@ -127,7 +123,7 @@ public class SessaoDAO {
 	}
 	/**
 	 * Metodo responsável por retornar o Json da sessao aberta pelo usuario
-	 * @return
+	 * @return Jeson com todas os atributos no conjunto do resultado
 	 * @throws ClassNotFoundException
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
@@ -148,10 +144,11 @@ public class SessaoDAO {
             return "";
         }
 	}
+	
 	/**
-	 * Metodo responsável por fazer a verificação da sessaao do usuario
+	 * Metodo responsável por fazer a verificação da sessao do usuario
 	 * @param sessao
-	 * @return
+	 * @return Recupera a sessao em aberta 
 	 * @throws ClassNotFoundException
 	 */
 	public Sessao CheckSassion(Sessao sessao) throws ClassNotFoundException{
@@ -182,9 +179,9 @@ public class SessaoDAO {
 	}
 	
 	/**
-	 * Metodo que retorna a ultima sessao em berto do usuario
+	 * Metodo que retorna a ultima sessao em berta pelo usuario
 	 * @param sessao_User
-	 * @return
+	 * @return Retornar um Json com os atributos da ultima sessao em aberta pdo usuário
 	 * @throws ClassNotFoundException
 	 */
 	
